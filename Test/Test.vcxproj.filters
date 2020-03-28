@@ -13,10 +13,25 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\basic">
+      <UniqueIdentifier>{e22ec2c7-7b0a-481c-b2be-baf57e2e6c38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="chapter01-array.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="struct_test.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="class_test.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="string_test.cpp">
+      <Filter>源文件\basic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
