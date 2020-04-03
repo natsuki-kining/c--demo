@@ -10,6 +10,7 @@ void swap4(string&, string&);
 void swap5(string str1="str1",string str2="str2");
 void swap6(const string&);
 int& index1(int i);
+int* index2(int&);
 
 
 int main() {
@@ -49,6 +50,11 @@ int main() {
 	cout << "执行后>> " << index1(3) << endl << endl;
 
 
+	//返回指针函数
+	int i;
+	int* value;
+	value = index2(i);
+	cout << "执行后>> value[0]:" << value[0] << "; i:" << i << endl << endl;
 
 
 	return 0;
@@ -97,4 +103,12 @@ void swap6(const string& str) {
 int& index1(int i) {
 	cout << "index1>>  i:" << i << endl;
 	return i;
+}
+
+int* index2(int& i) {
+	i = 1;
+	int* value = new int[i];
+
+	value[0] = 2;
+	return value;
 }
