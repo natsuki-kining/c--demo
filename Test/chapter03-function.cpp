@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <complex>
 
 using namespace std;
 
@@ -11,6 +12,31 @@ void swap5(string str1="str1",string str2="str2");
 void swap6(const string&);
 int& index1(int i);
 int* index2(int&);
+inline int isnumber(char);
+double max(double, double);
+int max(int,int);
+char max(char,char);
+string max(string, string);
+
+template <class T>
+T maxX(T v1, T v2)
+{
+	return v1 > v2 ? v1 : v2;
+}
+
+void printer(complex<int>);
+void printer(complex<double>);
+
+template <class T>
+void printerX(complex<T> v) {
+	cout << "real is " << v.real() << ", image is " << v.imag() << endl;
+}
+
+template <typename T> //使用typename代替class
+T maxXX(T v1, T v2)
+{
+	return v1 > v2 ? v1 : v2;
+}
 
 
 int main() {
@@ -56,6 +82,50 @@ int main() {
 	value = index2(i);
 	cout << "执行后>> value[0]:" << value[0] << "; i:" << i << endl << endl;
 
+	//内联函数
+	//如果程序中多次调用这个函数，将会大大降低使用效率，为了提供效率，常将函数main中对函数isnumber的调用替换成方法体。
+	//这种替换只要在函数isnumber的定义前面加上关键字inline即可。
+	char chars[] = {'0','1','a'};
+	for (int i = 0; i < 3; i++) {
+		cout << chars[i] << " is number? " << isnumber(chars[i]) << endl;
+	}
+	cout << endl;
+
+	//函数重载
+	cout << "函数重载" << endl;
+	cout << "double:\t" << max(1.2, 4.5) << endl
+		<< "int:\t" << max(5, 7) << endl
+		<< "char:\t" << max('a', '5') << endl
+		<< "string:\t" << max("hello","world") << endl << endl;
+
+
+	//函数模板.规定模板以template关键字和一个形参表开头
+	cout << "函数模板" << endl;
+	cout << "double:\t" << maxX(1.2, 4.5) << endl
+		<< "int:\t" << maxX(5, 7) << endl
+		<< "char:\t" << maxX('a', '5') << endl
+		<< "string:\t" << maxX("hello", "world") << endl << endl;
+
+	//具有复数complex模板类的函数
+	complex<int> comp1(2, 3);
+	complex<double> comp2(2.2, 3.3);
+	printer(comp1);
+	printer(comp2);
+	cout << endl << endl;
+
+	//模板complex
+	printerX(comp1);
+	printerX(comp2);
+	cout << endl << endl;
+
+
+	//使用typename代替class，
+	cout << "函数模板" << endl;
+	cout << "double:\t" << maxXX(1.2, 4.5) << endl
+		<< "int:\t" << maxXX(5, 7) << endl
+		<< "char:\t" << maxXX('a', '5') << endl
+		<< "string:\t" << maxXX("hello", "world") << endl
+		<< "int double:\t" << maxXX<double>(1, 4.5) << endl << endl;
 
 	return 0;
 }
@@ -111,4 +181,29 @@ int* index2(int& i) {
 
 	value[0] = 2;
 	return value;
+}
+
+
+inline int isnumber(char c) {
+	return (c >= '0' && c <= '9') ? 1 : 0;
+}
+
+double max(double v1, double v2) {
+	return v1 > v2 ? v1 : v2;
+}
+int max(int v1, int v2) {
+	return v1 > v2 ? v1 : v2;
+}
+char max(char v1, char v2) {
+	return v1 > v2 ? v1 : v2;
+}
+string max(string v1, string v2) {
+	return v1 > v2 ? v1 : v2;
+}
+
+void printer(complex<int> v) {
+	cout << "real is " << v.real() << ", image is " << v.imag() << endl;
+}
+void printer(complex<double> v) {
+	cout << "real is " << v.real() << ", image is " << v.imag() << endl;
 }
