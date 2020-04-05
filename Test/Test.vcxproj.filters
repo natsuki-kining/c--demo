@@ -36,5 +36,8 @@
     <ClCompile Include="chapter03-function.cpp">
       <Filter>源文件\basic</Filter>
     </ClCompile>
+    <ClCompile Include="chapter04-class.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
