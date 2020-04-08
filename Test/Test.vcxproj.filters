@@ -45,5 +45,8 @@
     <ClCompile Include="chapter06-extends.cpp">
       <Filter>源文件\basic</Filter>
     </ClCompile>
+    <ClCompile Include="chapter07-class-template.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
