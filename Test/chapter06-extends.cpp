@@ -110,6 +110,111 @@ class D : public A, public B, public C {
 		}
 };
 
+class E {
+	int i, j, k;
+	public :
+		E() : i(0),j(0),k(0)
+		{
+			cout << "调用 class E 无参构造函数" << endl;
+		}
+		E(int i, int j, int k)
+		{
+			this->i = i;
+			this->j = j;
+			this->k = k;
+			cout << "调用 class E 有无参构造函数 " << "i:" << i << ",j:" << j << ",k:" << k << endl;
+		}
+		~E() {
+			cout << "delete E" << endl;
+		}
+};
+
+
+class F {
+	int i, j, k;
+public:
+	F() : i(0), j(0), k(0)
+	{
+		cout << "调用 class F 无参构造函数" << endl;
+	}
+	F(int i, int j, int k)
+	{
+		this->i = i;
+		this->j = j;
+		this->k = k;
+		cout << "调用 class F 有无参构造函数 " << "i:" << i << ",j:" << j << ",k:" << k << endl;
+	}
+	~F() {
+		cout << "delete F" << endl;
+	}
+};
+
+class G {
+	int i, j, k;
+public:
+	G() : i(0), j(0), k(0)
+	{
+		cout << "调用 class G 无参构造函数" << endl;
+	}
+	G(int i, int j, int k)
+	{
+		this->i = i;
+		this->j = j;
+		this->k = k;
+		cout << "调用 class G 有无参构造函数 " << "i:" << i << ",j:" << j << ",k:" << k << endl;
+	}
+	~G() {
+		cout << "delete G" << endl;
+	}
+};
+
+class H {
+	int i, j, k;
+public:
+	H() : i(0), j(0), k(0)
+	{
+		cout << "调用 class H 无参构造函数" << endl;
+	}
+	H(int i, int j, int k)
+	{
+		this->i = i;
+		this->j = j;
+		this->k = k;
+		cout << "调用 class H 有无参构造函数 " << "i:" << i << ",j:" << j << ",k:" << k << endl;
+	}
+	~H() {
+		cout << "delete H" << endl;
+	}
+};
+
+class I : public E {
+	private:
+		int e1;
+		F f;
+	protected:
+		int e2;
+		G c;
+	public:
+		int e3;
+		H d;
+		I() :e1(0),e2(0),e3(0) {
+			cout << "调用 class I 无参构造函数" << endl;
+		}
+		I(int i, int j, int k){
+			this->e1 = i;
+			this->e2 = j;
+			this->e3 = k;
+			cout << "调用 class I 有无参构造函数 " << "e1:" << e1 << ",e2:" << e2 << ",e3:" << e3 << endl;
+		}
+		void show()
+		{
+			cout << "class I:" << "e1:" << e1 << ",e2:" << e2 << ",e3:" << e3 << endl;
+		}
+		~I() {
+			cout << "delete I" << endl;
+		}
+		
+};
 
 void main() {
 	//单一继承
@@ -146,6 +251,10 @@ void main() {
 	d.C::show();
 	
 	cout << endl << endl;
+
+	cout << "测试类成员跟父类的初始化循序：" << endl;
+	I i(1,2,3);
+
 
 	cout << "退出 main 函数" << endl << endl;
 }

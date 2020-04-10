@@ -48,5 +48,8 @@
     <ClCompile Include="chapter07-class-template.cpp">
       <Filter>源文件\basic</Filter>
     </ClCompile>
+    <ClCompile Include="chapter08-polymorphic.cpp">
+      <Filter>源文件\basic</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
