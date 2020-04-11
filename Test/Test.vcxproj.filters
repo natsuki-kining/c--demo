@@ -48,7 +48,7 @@
     <ClCompile Include="chapter07-class-template.cpp">
       <Filter>源文件\basic</Filter>
     </ClCompile>
-    <ClCompile Include="chapter08-polymorphic.cpp">
+    <ClCompile Include="chapter08-virtual.cpp">
       <Filter>源文件\basic</Filter>
     </ClCompile>
   </ItemGroup>
